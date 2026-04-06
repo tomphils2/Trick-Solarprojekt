@@ -10,5 +10,8 @@ Da das Fundament (Netzwerk & Internet) nun steht, können wir mit der **Phase 3 
 Mein Vorschlag für den nächsten Schritt: **Netbird Installation**.
 * **Warum?** Damit bekommst du eine feste Adresse (z.B. `proxmox.netbird.cloud`).
 * **Vorteil:** Du musst dann nie wieder IPs tippen, egal ob du gerade per LAN, WLAN oder Hotspot verbunden bist. Netbird kümmert sich im Hintergrund um den Tunnel.
-
-**Soll ich dir zeigen, wie wir Netbird direkt auf Proxmox installieren?**
+ 
+### Netbird?
+* Wir haben Netbird auf unserem pve Server (node) installiert um Fernzugriff auf alles zu erhalten.
+* https://pve.netbird.cloud:8006
+* 
