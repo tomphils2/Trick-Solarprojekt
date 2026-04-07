@@ -1,6 +1,16 @@
 # Proxmox und damit ein pve installieren (pve steht für Proxmox Virtual Environment)
 * ein spezielles Betriebssystem für Server auf Debian Basis
 
+2. Der Host (Der Gastgeber)
+In deinem Netzwerk ist dieser Rechner der Host. Er stellt die physischen Ressourcen (CPU, RAM, Festplatte) bereit. Alles, was innerhalb von Proxmox läuft, nennt man dann Gäste (VMs oder Container).
+
+3. Virtualisierungs-Plattform
+Das ist die gebräuchlichste Bezeichnung. Proxmox kombiniert zwei Technologien:
+
+KVM (Virtual Machines): Für "schwere" Systeme wie deinen Windows 11 VPS. Hier wird die komplette Hardware simuliert.
+
+LXC (Linux Container): Für "leichte" Dienste wie Home Assistant oder Jellyfin. Diese teilen sich den Kernel mit Proxmox und verbrauchen fast keine Ressourcen.
+
 ## Kurze Zusammenfassung der Konfiguration:
 * **Netzwerk-Modus:** Interner Hyper-V Switch (`Proxmox-Net`).
 * **IP-Bereich:** Umgestellt auf `10.0.0.x` via Windows Registry, um Konflikte mit Hotel-WLANs oder Heimroutern zu vermeiden.
@@ -24,4 +34,14 @@ Mein Vorschlag für den nächsten Schritt: **Netbird Installation**.
 - netbird up --setup-key 6F65BF50-8768-4922-9BE9-F4D1780F7C39
 
 * https://pve.netbird.cloud:8006
-* 
+
+* Docker in einem LXC auf Proxmox installieren incl. Portainer und Netbird
+
+### neue HDD einbinden
+- lsblk -f
+- partitionieren, formatieren, mounten und in Proxmox einhaengen
+- 
+ Was passiert jetzt?
+Proxmox merkt sich: „Der neue Speicher namens docker liegt auf dem Ordner /mnt/docker – und dahinter steckt die neue HDD (/dev/sdc1)“.
+Ab sofort kannst du diesen Speicher überall in Proxmox benutzen (für LXCs, VMs, Backups usw.).
+
